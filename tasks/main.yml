@@ -1,0 +1,14 @@
+---
+
+- name: Install IIS (Web-Server and Web-Common-Http)
+  win_feature:
+    name:
+    - Web-Server
+    - Web-Common-Http
+    state: present
+
+- name: default-website-index
+  win_template:
+    src: templates/index.html.j2
+    dest: "C:\\inetpub\\wwwroot\\index.html"
+
